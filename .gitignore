@@ -1,0 +1,25 @@
+# Dependencies
+backend/vendor/
+backend/node_modules/
+mobile/node_modules/
+
+# Environment
+backend/.env
+mobile/.env
+
+# Laravel
+backend/storage/*.key
+backend/database/database.sqlite
+backend/.phpunit.result.cache
+
+# Expo
+mobile/.expo/
+mobile/dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
