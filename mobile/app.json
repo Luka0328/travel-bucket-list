@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Travel Bucket List",
+    "slug": "travel-bucket-list",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "backgroundColor": "#1a73e8"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#1a73e8"
+      },
+      "softwareKeyboardLayoutMode": "resize"
+    }
+  }
+}
