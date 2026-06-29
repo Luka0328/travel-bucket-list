@@ -11,6 +11,10 @@ import LoginScreen from './src/screens/LoginScreen';
 import RegisterScreen from './src/screens/RegisterScreen';
 import DestinationsScreen from './src/screens/DestinationsScreen';
 import DestinationDetailScreen from './src/screens/DestinationDetailScreen';
+import MyVisitsScreen from './src/screens/MyVisitsScreen';
+import VisitDetailScreen from './src/screens/VisitDetailScreen';
+import StatisticsScreen from './src/screens/StatisticsScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
 
 if (Platform.OS === 'web') {
   enableScreens(false);
@@ -29,6 +33,20 @@ function DestinationsStack() {
     >
       <Stack.Screen name="DestinationsList" component={DestinationsScreen} options={{ title: 'Destinacije' }} />
       <Stack.Screen name="DestinationDetail" component={DestinationDetailScreen} options={{ title: 'Detalji' }} />
+    </Stack.Navigator>
+  );
+}
+
+function MyVisitsStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: { backgroundColor: '#1a73e8' },
+        headerTintColor: '#fff',
+      }}
+    >
+      <Stack.Screen name="MyVisitsList" component={MyVisitsScreen} options={{ title: 'Moja lista' }} />
+      <Stack.Screen name="VisitDetail" component={VisitDetailScreen} options={{ title: 'Poseta' }} />
     </Stack.Navigator>
   );
 }
@@ -59,6 +77,34 @@ function MainTabs() {
           headerShown: false,
           tabBarIcon: ({ color, size, focused }) => (
             <Ionicons name={focused ? 'map' : 'map-outline'} size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Moja lista"
+        component={MyVisitsStack}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons name={focused ? 'bookmark' : 'bookmark-outline'} size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Statistika"
+        component={StatisticsScreen}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons name={focused ? 'bar-chart' : 'bar-chart-outline'} size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profil"
+        component={ProfileScreen}
+        options={{
+          tabBarIcon: ({ color, size, focused }) => (
+            <Ionicons name={focused ? 'person' : 'person-outline'} size={size} color={color} />
           ),
         }}
       />

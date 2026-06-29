@@ -54,4 +54,17 @@ export const api = {
   },
   destination: (id) => request(`/destinations/${id}`),
   categories: () => request('/destinations/categories'),
+  myVisits: (status) => request(`/my-visits${status ? `?status=${status}` : ''}`),
+  addVisit: (destinacijaId) =>
+    request('/my-visits', { method: 'POST', body: JSON.stringify({ destinacija_id: destinacijaId }) }),
+  updateVisit: (id, body) =>
+    request(`/my-visits/${id}`, { method: 'PUT', body: JSON.stringify(body) }),
+  deleteVisit: (id) => request(`/my-visits/${id}`, { method: 'DELETE' }),
+  activities: (visitId) => request(`/my-visits/${visitId}/activities`),
+  addActivity: (visitId, body) =>
+    request(`/my-visits/${visitId}/activities`, { method: 'POST', body: JSON.stringify(body) }),
+  updateActivity: (id, body) =>
+    request(`/activities/${id}`, { method: 'PUT', body: JSON.stringify(body) }),
+  deleteActivity: (id) => request(`/activities/${id}`, { method: 'DELETE' }),
+  statistics: () => request('/statistics'),
 };
