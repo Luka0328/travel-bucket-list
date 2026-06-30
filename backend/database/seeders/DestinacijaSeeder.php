@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 namespace Database\Seeders;
 
@@ -25,13 +25,13 @@ class DestinacijaSeeder extends Seeder
             [
                 'naziv' => 'Beograd',
                 'drzava' => 'Srbija',
-                'opis' => 'Glavni grad sa bogatom noćnom scenom, Kalemegdanom i Savom i Dunavom.',
+                'opis' => 'Glavni grad sa bogatom noćnom scenom, Kalemegdanom, Savom i Dunavom.',
                 'kategorija' => 'grad',
             ],
             [
                 'naziv' => 'Santorini',
                 'drzava' => 'Grčka',
-                'opis' => 'Ostrvo sa belim kućama, plavim kupolama i spektakularnim zalaske sunca.',
+                'opis' => 'Ostrvo sa belim kućama, plavim kupolama i spektakularnim zalaskom sunca.',
                 'kategorija' => 'more',
             ],
             [
@@ -65,3 +65,4 @@ class DestinacijaSeeder extends Seeder
         }
     }
 }
+

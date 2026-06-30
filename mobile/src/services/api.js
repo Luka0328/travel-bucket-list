@@ -1,4 +1,4 @@
-const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
+﻿const API_URL = process.env.EXPO_PUBLIC_API_URL || 'http://127.0.0.1:8000/api';
 
 let authToken = null;
 
@@ -22,16 +22,27 @@ async function request(path, options = {}) {
     ...options.headers,
   };
 
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 15000);
+
   let response;
   try {
     response = await fetch(`${API_URL}${path}`, {
       ...options,
       headers,
+      signal: controller.signal,
     });
-  } catch {
+  } catch (e) {
+    if (e.name === 'AbortError') {
+      throw new Error(
+        'Server ne odgovara na vreme. Proveri IP u .env i da li backend radi (php artisan serve --host=0.0.0.0).'
+      );
+    }
     throw new Error(
       'Ne mogu da se povezem sa serverom. Proveri da li backend radi (php artisan serve).'
     );
+  } finally {
+    clearTimeout(timeoutId);
   }
 
   const data = await response.json().catch(() => ({}));
